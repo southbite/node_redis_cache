@@ -1,0 +1,21 @@
+{
+  "name": "node_redis_cache",
+  "version": "0.0.1",
+  "description": "Simple LRU/static memory cache using a redis db",
+  "main": "node_redis_cache_test.js",
+  "dependencies": {
+    "redis": "~0.8.4",
+    "async": "~0.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/southbite/node_redis_cache.git"
+  },
+  "author": "Simon Bishop",
+  "license": "Public domain",
+  "readmeFilename": "README.md"
+}
