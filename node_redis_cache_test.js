@@ -4,6 +4,27 @@ var async = require('async');
 //max lru mem, db key, done
 global_cache.initialize({dbKey:'redis_lru_test'}, function(e){
 	
+	var randomTestCount = process.argv[2];
+	
+	if (randomTestCount != null)
+	{
+		if (isNaN(randomTestCount))
+		{
+			console.log('random test count argument invalid, defaulting to 10');
+			randomTestCount = 10;
+		}
+		
+	}
+	
+	if (randomTestCount == null)
+	{
+		console.log('random test count argument not set, defaulting to 10');
+		randomTestCount = 10;
+	}
+	
+	//console.log(randomTestCount);
+	//process.exit(0);
+	
 	if (!e)
 	{
 		var testStaticObjectsType1 = [{_id:0, name:'test 0', type:'1'}, {_id:1, name:'test 1', type:'1'}, {_id:2, name:'test 2', type:'1'}, {_id:3, name:'test 3', type:'1'}];
@@ -41,9 +62,11 @@ global_cache.initialize({dbKey:'redis_lru_test'}, function(e){
 								var LRUPushErrors = [];
 								var LRUGetErrors = [];
 								
-								var randomTestCount = 100000;
+								
 								var randomPushesCount = 0;
 								var randomGetsCount = 0;
+								
+								
 								
 								async.until(function(){
 									
